@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>אמנת כיתה א׳ כצנלסון</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;600;700;800&display=swap">
+<style>
+:root{
+  --bg:#fafbff; --surface:#ffffff; --soft:#f7f9fd; --border:#e8edf5; --border-strong:#d4dceb;
+  --ink:#0f1b30; --ink-soft:#4a5878; --ink-muted:#6b7794;
+  --accent:#6366f1; --accent-soft:#eef0ff; --pink:#ec4899; --purple:#8b5cf6;
+  --pink-ink:#be185d; --pink-soft:#fce7f3; --teal-soft:#ccfbf1; --teal-ink:#0f766e;
+  --orange-bg:#fffbeb; --orange-soft:#fef3c7; --orange-ink:#92400e;
+  --alert:#d92d20; --on-dark:#ffffff; --btn:#0f1b30; --on-btn:#ffffff;
+  --shadow:0 1px 3px rgba(15,27,48,.05),0 1px 2px rgba(15,27,48,.04);
+  --shadow-accent:0 12px 36px rgba(99,102,241,.25);
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0c1322; --surface:#141d33; --soft:#101a2f; --border:#24304d; --border-strong:#34436a;
+  --ink:#eef2fb; --ink-soft:#b6c1da; --ink-muted:#93a0bf;
+  --accent:#8b8ef8; --accent-soft:#1c2347; --pink:#f472b6; --purple:#a78bfa;
+  --pink-ink:#f9a8d4; --pink-soft:#3a1730; --teal-soft:#0f3a3a; --teal-ink:#5eead4;
+  --orange-bg:#2a2210; --orange-soft:#4a3a12; --orange-ink:#fcd34d;
+  --alert:#ff6b61; --btn:#eef2fb; --on-btn:#0c1322; --shadow:none; --shadow-accent:none; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0c1322; --surface:#141d33; --soft:#101a2f; --border:#24304d; --border-strong:#34436a;
+  --ink:#eef2fb; --ink-soft:#b6c1da; --ink-muted:#93a0bf;
+  --accent:#8b8ef8; --accent-soft:#1c2347; --pink:#f472b6; --purple:#a78bfa;
+  --pink-ink:#f9a8d4; --pink-soft:#3a1730; --teal-soft:#0f3a3a; --teal-ink:#5eead4;
+  --orange-bg:#2a2210; --orange-soft:#4a3a12; --orange-ink:#fcd34d;
+  --alert:#ff6b61; --btn:#eef2fb; --on-btn:#0c1322; --shadow:none; --shadow-accent:none; color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Heebo,-apple-system,"Segoe UI",sans-serif;font-size:16px;line-height:1.55;padding-block:20px 120px;padding-inline:16px}
+.wrap{max-width:560px;margin:0 auto;display:grid;gap:28px}
+a{color:var(--accent)}
+.num{direction:ltr;unicode-bidi:isolate;display:inline-block;text-align:left;font-variant-numeric:tabular-nums}
+.hero{border-radius:22px;padding:28px 22px;color:var(--on-dark);background:linear-gradient(135deg,#6366f1 0%,#8b5cf6 50%,#ec4899 100%);box-shadow:var(--shadow-accent)}
+.hero .label{font-size:13px;font-weight:600;letter-spacing:.04em;opacity:.92;margin-bottom:8px}
+.hero h1{font-size:34px;font-weight:800;letter-spacing:-.02em;line-height:1.1;margin:0;text-wrap:balance}
+.hero p{margin:14px 0 0;font-size:17px;opacity:.95}
+h2{font-size:24px;font-weight:800;letter-spacing:-.01em;line-height:1.2;margin:0 0 6px;text-wrap:balance;color:var(--alert)}
+.sub{color:var(--ink-soft);margin:0}
+.facts{display:grid;gap:12px;margin-top:16px}
+.fact{background:var(--surface);border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow);padding:16px 18px;display:grid;grid-template-columns:auto 1fr;gap:4px 14px;align-items:start}
+.fact .n{grid-row:span 2;width:40px;height:40px;border-radius:12px;background:var(--pink-soft);font-size:21px;line-height:1;display:grid;place-items:center;margin-top:2px}
+.fact .big{font-size:30px;font-weight:800;letter-spacing:-.02em;line-height:1.1;color:var(--alert)}
+.fact .big small{font-size:18px;font-weight:800;color:var(--alert);letter-spacing:0;margin-inline-start:6px}
+.fact p{margin:0;font-size:15px;color:var(--ink-soft);line-height:1.5}
+.fact .src{font-size:13px;color:var(--ink-muted);margin-top:4px}
+.tail{margin-top:14px;font-size:14px;color:var(--ink-soft);background:var(--soft);border:1px solid var(--border);border-radius:14px;padding:12px 14px}
+.world{display:grid;gap:10px;margin-top:14px}
+.row{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:12px 14px}
+.row .fl{font-size:22px;line-height:1.2}
+.row strong{display:block;font-weight:700}
+.row span.t{display:block;color:var(--ink-soft);font-size:14.5px}
+.row.il{border-color:var(--alert);border-width:2px}
+
+.prog{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:14px 16px;margin-top:14px;box-shadow:var(--shadow)}
+.prog-top{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;font-size:15px;margin-bottom:10px}
+.bar-bg{height:12px;border-radius:999px;background:var(--accent-soft);overflow:hidden}
+.bar-fg{height:100%;border-radius:999px;background:linear-gradient(90deg,#6366f1,#ec4899);min-width:0;transition:width .4s}
+#f{display:grid;gap:12px;margin-top:14px;background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:16px;box-shadow:var(--shadow)}
+#f label{display:grid;gap:6px;font-weight:600;font-size:15px}
+#f input[type=text],#f input:not([type]){font:inherit;font-weight:400;font-size:16px;padding:12px 14px;border:1px solid var(--border-strong);border-radius:12px;background:var(--bg);color:var(--ink);min-height:48px;width:100%}
+#f input:focus-visible{outline:3px solid var(--accent);outline-offset:1px}
+#f .chk{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:start;font-weight:400}
+#f .chk input{width:22px;height:22px;margin-top:2px;accent-color:#6366f1}
+#f[hidden],.thanks[hidden]{display:none}
+.hp{position:absolute;inset-inline-start:-9999px;width:1px;height:1px;overflow:hidden}
+.msg{font-size:14.5px;color:var(--alert);min-height:0}
+.msg:empty{display:none}
+.submit{font:inherit;font-weight:800;font-size:18px;min-height:50px;border:0;border-radius:999px;background:var(--btn);color:var(--on-btn);cursor:pointer}
+.submit:disabled{opacity:.6;cursor:default}
+.submit:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.thanks{margin-top:14px;text-align:center;background:var(--teal-soft);color:var(--teal-ink);border-radius:16px;padding:20px 16px}
+.thanks h3{margin:6px 0;font-size:22px}.thanks p{margin:0;max-width:none}
+.thanks .ti{font-size:34px}
+.signers{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:8px}
+.signers li{display:flex;justify-content:space-between;align-items:center;gap:10px;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:10px 14px;margin:0;max-width:none}
+.signers .nm{font-weight:700}
+.signers .cl{flex:none;font-size:13px;font-weight:700;color:var(--pink-ink);background:var(--pink-soft);border-radius:999px;padding:2px 10px}
+.signers .empty{color:var(--ink-soft);justify-content:center}
+.pledge{background:var(--surface);border:2px dashed var(--border-strong);border-radius:22px;padding:22px 20px}
+.pledge h2{font-size:26px}
+.pledge ol{margin:16px 0 0;padding:0;list-style:none;display:grid;gap:12px;counter-reset:p}
+.pledge li{counter-increment:p;display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start}
+.pledge li::before{content:counter(p);width:28px;height:28px;border-radius:50%;background:var(--pink-soft);color:var(--pink-ink);font-weight:800;font-size:14px;display:grid;place-items:center;margin-top:1px}
+.pledge li b{display:block;font-weight:700}
+.pledge li span{color:var(--ink-soft);font-size:15px}
+.steps{display:grid;gap:8px;margin-top:10px}
+.st{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:start;background:var(--soft);border:1px solid var(--border);border-radius:12px;padding:10px 12px}
+.st .si{font-size:20px;line-height:1.3}
+.st strong{display:block;font-weight:700;color:var(--ink);font-size:15px}
+.st span:not(.si){display:block;color:var(--ink-soft);font-size:14px}
+.pledge li .st span{margin:0}
+.note{border-radius:14px;padding:14px 16px;background:var(--orange-bg);border:1px solid var(--orange-soft);color:var(--orange-ink);font-size:14.5px;margin-top:16px}
+.goal{display:flex;gap:14px;align-items:center;background:var(--accent-soft);border-radius:16px;padding:14px 16px;margin-top:16px}
+.goal .v{font-size:30px;font-weight:800;line-height:1}
+.goal p{margin:0;font-size:14.5px;color:var(--ink-soft)}
+.src-list{font-size:13px;color:var(--ink-muted);padding-inline-start:18px;margin:8px 0 0}
+.src-list li{margin-bottom:4px}
+.bar{position:fixed;inset-inline:0;bottom:0;padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px));background:var(--bg);border-top:1px solid var(--border);z-index:5}
+.cta{display:block;max-width:560px;margin:0 auto;text-align:center;background:var(--btn);color:var(--on-btn);font-weight:800;font-size:18px;padding:15px 18px;border-radius:999px;text-decoration:none;min-height:48px}
+.cta:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.fine{font-size:12.5px;color:var(--ink-muted);margin:0}
+</style>
+
+
+</head>
+<body>
+<div class="wrap" dir="rtl" lang="he">
+  <header class="hero">
+    <div class="label">שכבת א׳ · בית ספר כצנלסון, כפר סירקין</div>
+    <h1>עולים למצב טיסה. ביחד.</h1>
+    <p>הנהגת ההורים מזמינה את כל הורי שכבת א׳ לחתום על אמנה אחת: לדחות את הסמארטפון, ולעשות את זה כולנו יחד, כדי שאף ילד לא יישאר לבד.</p>
+  </header>
+
+  <section>
+    <h2>למה זה דחוף: 10 מספרים</h2>
+    <p class="sub">כולם ממחקרים וסקרים שפורסמו.</p>
+    <div class="facts">
+      <div class="fact"><div class="n" aria-hidden="true">☎️</div><div class="big"><span class="num">+71%</span><small>בפניות למוקד 105 תוך שנה</small></div><p>ב-2025 טיפל המוקד הלאומי להגנה על ילדים ברשת ב-<span class="num">16,292</span> פניות, לעומת <span class="num">9,511</span> ב-2024. <span class="num">72%</span> מהפוגעים שאותרו היו בעצמם מתחת לגיל 18.</p><div class="src" style="grid-column:2">ynet, 13.2.2026</div></div>
+      <div class="fact"><div class="n" aria-hidden="true">🏥</div><div class="big"><span class="num">17</span><small>ילדים בחדרי מיון</small></div><p>לפחות 17 ילדים בישראל הגיעו לחדרי מיון בתוך ימים ספורים אחרי אתגר שהתפשט בטיקטוק, ביניהם בני 12 עם חבלות ראש וחשד לזעזוע מוח.</p><div class="src" style="grid-column:2">N12, 3.12.2024</div></div>
+      <div class="fact"><div class="n" aria-hidden="true">💬</div><div class="big"><span class="num">123</span><small>ילדי כיתה ה׳ בקבוצה אחת</small></div><p>צורפו לקבוצת וואטסאפ שבה נשלחו תכנים מיניים קשים ואיומים. הורים תהו איך מספרי הילדים הגיעו לשולח.</p><div class="src" style="grid-column:2">ynet, 13.5.2025</div></div>
+      <div class="fact"><div class="n" aria-hidden="true">⚠️</div><div class="big"><span class="num">×2</span><small>סיכון</small></div><p>מעל 3 שעות ביום ברשתות קשורות לפי שניים בסיכון לתסמיני דיכאון וחרדה אצל בני נוער.</p><div class="src" style="grid-column:2">המנתח הכללי של ארה״ב, 2023, על בסיס JAMA Psychiatry</div></div>
+      <div class="fact"><div class="n" aria-hidden="true">💔</div><div class="big"><span class="num">48%</span><small>לעומת <span class="num">28%</span></small></div><p>מהנשים בנות 18-24 שקיבלו סמארטפון בגיל 5-6 דיווחו על מחשבות אובדניות, לעומת מי שקיבלו בגיל 13. אצל גברים: <span class="num">31%</span> לעומת <span class="num">20%</span>.</p><div class="src" style="grid-column:2">Sapien Labs, פרויקט Global Mind, 2025</div></div>
+      <div class="fact"><div class="n" aria-hidden="true">🪞</div><div class="big"><span class="num">32%</span><small>מהנערות</small></div><p>אמרו שאינסטגרם החמירה את התחושה לגבי הגוף, כשכבר הרגישו לא טוב. זה המחקר הפנימי של מטא עצמה, שפורסם ב-2021.</p><div class="src" style="grid-column:2">Wall Street Journal, 2021</div></div>
+      <div class="fact"><div class="n" aria-hidden="true">😵</div><div class="big"><span class="num">36%</span><small>מבני הנוער בישראל מבלים מעל 6 שעות ביום מול מסך</small></div><p>וההורים, לפי אותו סקר, בטוחים שזה פחות.</p><div class="src" style="grid-column:2">איגוד האינטרנט הישראלי, 2022, בני 13-18</div></div>
+      <div class="fact"><div class="n" aria-hidden="true">😰</div><div class="big"><span class="num">45%</span><small>מהתלמידים</small></div><p>חשים חרדה או לחץ כשהטלפון לא קרוב אליהם (ממוצע מדינות OECD).</p><div class="src" style="grid-column:2">OECD, מבחני PISA 2022</div></div>
+      <div class="fact"><div class="n" aria-hidden="true">👀</div><div class="big"><span class="num">57%</span><small>מבני הנוער בישראל</small></div><p>אומרים שהוריהם לא בודקים את הטלפון שלהם אף פעם. <span class="num">65%</span> מההורים חושבים שהם מדברים איתם על הסכנות בתדירות גבוהה, ורק <span class="num">28%</span> מהנערים מסכימים.</p><div class="src" style="grid-column:2">איגוד האינטרנט הישראלי, 2022</div></div>
+      <div class="fact"><div class="n" aria-hidden="true">💸</div><div class="big"><span class="num">25,000 ₪</span><small>ילד בן 8</small></div><p>אימא ממודיעין גילתה בכרטיס האשראי חיובים של כ-25,000 ש״ח מרכישות במשחקים, בעשרות עסקאות. החברות לא ביטלו את החיובים.</p><div class="src" style="grid-column:2">חדשות 12, 9.2.2021</div></div>
+    </div>
+    <p class="tail">הילדים שלנו בכיתה א׳, לפני שיש לחץ. מאות בתי ספר בארץ כבר בחרו בדרך הזאת, וזה הרגע שבו אפשר להחליט ביחד.</p>
+  </section>
+
+  <section>
+    <h2>העולם כבר זז, ואנחנו מאחור</h2>
+    <p class="sub">מדינות מתקדמות עוברות מהמלצות לחוק. בישראל עדיין אין חוק, ולכן אנחנו מחליטים ביחד.</p>
+    <div class="world">
+      <div class="row"><div class="fl" aria-hidden="true">🇦🇺</div><div><strong>אוסטרליה</strong><span class="t">אסור לבני פחות מ-16 ברשתות חברתיות, בתוקף מדצמבר 2025.</span></div></div>
+      <div class="row"><div class="fl" aria-hidden="true">🇫🇷</div><div><strong>צרפת</strong><span class="t">חוק לרשתות מגיל 15 אושר ביולי 2026, ואיסור טלפונים גם בתיכונים.</span></div></div>
+      <div class="row"><div class="fl" aria-hidden="true">🇬🇧</div><div><strong>בריטניה, דנמרק, יוון, ספרד, טורקיה</strong><span class="t">הכריזו או אישרו חקיקה לגיל 15 עד 16.</span></div></div>
+      <div class="row il"><div class="fl" aria-hidden="true">🇮🇱</div><div><strong>ישראל</strong><span class="t">משרד הבריאות ממליץ סמארטפון מגיל 13 ורשתות מגיל 15, ורק מקים ועדה שתבחן חקיקה. עדיין אין חוק.</span></div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>ארבעה כללים מ״דור בחרדה״</h2>
+    <p class="sub">ג׳ונתן היידט, בספר שהפך לשיחה עולמית: אף הורה לא רוצה להיות היחיד, ולכן צריך כלל משותף.</p>
+    <div class="world">
+      <div class="row"><div class="fl" aria-hidden="true">📞</div><div><strong>טלפון בטוח במקום סמארטפון</strong><span class="t">שיחות והודעות בלבד, בלי אינטרנט בילדות.</span></div></div>
+      <div class="row"><div class="fl" aria-hidden="true">🚫</div><div><strong>בלי רשתות חברתיות בגיל הצעיר</strong><span class="t">אצלנו: לא לפני 15.</span></div></div>
+      <div class="row"><div class="fl" aria-hidden="true">🏫</div><div><strong>בתי ספר בלי טלפונים ובלי שעונים חכמים</strong><span class="t">לאורך כל היום.</span></div></div>
+      <div class="row"><div class="fl" aria-hidden="true">🌳</div><div><strong>יותר משחק חופשי ועצמאות</strong><span class="t">ילדים שמשחקים בחוץ וגדלים בלי מסך. זה כפר סירקין.</span></div></div>
+    </div>
+  </section>
+
+  <section class="pledge" id="amana">
+    <h2>אמנת שכבת א׳</h2>
+    <p class="sub">אני ובן/בת זוגי מצטרפים לאמנה של שכבת א׳ בכצנלסון.</p>
+    <ol>
+      <li><div><b>הסולם לילד שלי: שלושה שלבים</b>
+        <div class="steps">
+          <div class="st"><span class="si" aria-hidden="true">⌚</span><div><strong>כיתות א׳-ג׳: שעון חכם אופציונלי</strong><span>בעיקר למי שמגיע בהסעות מחוץ לכפר סירקין.</span></div></div>
+          <div class="st"><span class="si" aria-hidden="true">📞</span><div><strong>מכיתה ג׳: טלפון בטוח</strong><span>שיחות והודעות בלבד, בלי אינטרנט ובלי אפליקציות.</span></div></div>
+          <div class="st"><span class="si" aria-hidden="true">📱</span><div><strong>בסיום כיתה ו׳: טלפון חכם</strong><span>סמארטפון ראשון, לא לפני כן.</span></div></div>
+        </div></div></li>
+      <li><div><b>בלי רשתות חברתיות לפני גיל 15</b><span>אין לילד חשבון ברשת חברתית לפני גיל 15.</span></div></li>
+      <li><div><b>בזמן שיעור הילד לא זמין</b><span>אני לא מתקשר ולא מאזין לילד בזמן שיעור. בחירום פונים למזכירות.</span></div></li>
+      <li><div><b>קבוצת כיתה בהסכמת הרוב</b><span>קבוצת כיתה של ילדים נפתחת רק בהסכמת רוב הכיתה.</span></div></li>
+      <li><div><b>מכשיר של אח גדול נשאר אצלו</b><span>מכשיר של אח גדול לא עובר לילד הצעיר.</span></div></li>
+      <li><div><b>אירועים בלי מכשירי ילדים</b><span>באירועי כיתה, בימי הולדת ובטיולים אין מכשיר ילדים.</span></div></li>
+    </ol>
+    <div class="goal"><div class="v"><span class="num">22</span></div><p>משפחות מתוך <span class="num">43</span> בשכבה (<span class="num">51%</span>, רוב) צריכות לחתום כדי שהאמנה תיכנס לתוקף.</p></div>
+    <p class="note">טלפון בטוח עולה כ-200 ש״ח, ואפשר לרכוש בקבוצה.</p>
+    <p class="note">האמנה התנדבותית. למי שכבר יש סמארטפון אין בושה ואין לחץ: מזמינים אתכם לעבור לטלפון בטוח, ובכל מקרה המכשיר כבוי בבית הספר לפי חוזר מנכ״ל.</p>
+  </section>
+
+  <section id="sign">
+    <h2>חותמים על האמנה</h2>
+    <p class="sub">שני ההורים בטופס אחד. אחרי החתימה השמות מופיעים ברשימה למטה.</p>
+    <div class="prog" aria-live="polite">
+      <div class="prog-top"><span><b class="num" id="cnt">0</b> משפחות חתמו</span><span>היעד: <b class="num">22</b> מתוך <b class="num">43</b></span></div>
+      <div class="bar-bg"><div class="bar-fg" id="barfg" style="width:0%"></div></div>
+    </div>
+    <form id="f" novalidate autocomplete="off">
+      <label>שם הורה 1<input id="p1" name="parent1" maxlength="60" required autocomplete="off"></label>
+      <label>שם הורה 2<input id="p2" name="parent2" maxlength="60" required autocomplete="off"></label>
+      <label>כיתה של הילד/ה<input id="cls" name="class_name" maxlength="12" placeholder="למשל א׳2" required autocomplete="off"></label>
+      <div class="hp" aria-hidden="true"><label>אתר<input id="web" name="website" tabindex="-1" autocomplete="off"></label></div>
+      <label class="chk"><input type="checkbox" id="agree"><span>שנינו קראנו את האמנה ומסכימים לחתום עליה.</span></label>
+      <label class="chk"><input type="checkbox" id="show"><span>מסכימים שהשמות שלנו והכיתה יופיעו ברשימת החותמים.</span></label>
+      <div id="msg" class="msg" role="status" aria-live="polite"></div>
+      <button type="submit" class="submit" id="submitbtn">חותמים</button>
+    </form>
+    <div id="thanks" class="thanks" hidden><div class="ti" aria-hidden="true">✈️</div><h3>תודה, אתם על הסיפון</h3><p>החתימה נקלטה. השמות שלכם מופיעים ברשימה למטה.</p></div>
+  </section>
+
+  <section>
+    <h2>על הסיפון</h2>
+    <ul class="signers" id="list"><li class="empty">טוען את הרשימה…</li></ul>
+    <p class="fine" style="margin-top:12px">שמות מופיעים רק של מי שהסכים לכך. להסרת שם פנו להנהגת ההורים.</p>
+  </section>
+
+  <section>
+    <h2 style="font-size:16px;margin-top:20px">מקורות</h2>
+    <ul class="src-list">
+      <li>U.S. Surgeon General, Social Media and Youth Mental Health (2023)</li>
+      <li>ynet, 13.2.2026 ו-13.5.2025</li>
+      <li>N12, 3.12.2024 ו-9.2.2021</li>
+      <li>Sapien Labs, Global Mind Project (2025)</li>
+      <li>Wall Street Journal, The Facebook Files (ספטמבר 2021)</li>
+      <li>OECD, PISA 2022 Results (2023-2024)</li>
+      <li>איגוד האינטרנט הישראלי, נוער, הורים ומסכים (2022)</li>
+    </ul>
+    <p class="fine" style="margin-top:12px">הנהגת ההורים · בית ספר כצנלסון עובר למצב טיסה</p>
+  </section>
+</div>
+
+<div class="bar" dir="rtl" lang="he"><a class="cta" id="signbtn" href="#sign">חותמים על האמנה</a></div>
+
+<script>
+(function(){
+  var API="https://bsattwsifqapuugoynlp.supabase.co/functions/v1/katznelson-pledge";
+  var GOAL=22;
+  var $=function(id){return document.getElementById(id)};
+  function showSigned(){ $("f").hidden=true; $("thanks").hidden=false; var b=document.querySelector(".bar"); if(b) b.hidden=true; }
+  try{ if(localStorage.getItem("kp_signed")==="1") showSigned(); }catch(e){}
+  function render(data){
+    var sigs=(data&&data.signatures)||[], n=(data&&data.count)||0;
+    $("cnt").textContent=String(n);
+    $("barfg").style.width=Math.min(100,Math.round(n/GOAL*100))+"%";
+    var ul=$("list"); ul.textContent="";
+    if(!sigs.length){var li=document.createElement("li");li.className="empty";li.textContent="היו הראשונים לעלות על הסיפון";ul.appendChild(li);return;}
+    sigs.forEach(function(s){
+      var li=document.createElement("li");
+      var nm=document.createElement("span");nm.className="nm";nm.textContent=s.parent1+" ו"+s.parent2;
+      var cl=document.createElement("span");cl.className="cl";cl.textContent="כיתה "+s.class_name;
+      li.appendChild(nm);li.appendChild(cl);ul.appendChild(li);
+    });
+  }
+  function load(){
+    fetch(API).then(function(r){return r.json()}).then(render).catch(function(){
+      var ul=$("list");ul.textContent="";var li=document.createElement("li");li.className="empty";li.textContent="לא הצלחנו לטעון את הרשימה כרגע.";ul.appendChild(li);
+    });
+  }
+  load();
+  var ERR={bad_name:"נא לכתוב שם מלא באותיות בלבד, לכל אחד מההורים.",bad_class:"נא לכתוב כיתה, למשל א׳2.",consent_required:"צריך לסמן את שתי תיבות ההסכמה.",duplicate:"המשפחה הזאת כבר חתמה. תודה!",rate_limited:"יותר מדי ניסיונות. נסו שוב בעוד שעה.",write_failed:"משהו השתבש. נסו שוב בעוד רגע.",read_failed:"משהו השתבש. נסו שוב."};
+  $("f").addEventListener("submit",function(ev){
+    ev.preventDefault();
+    var msg=$("msg"); msg.textContent="";
+    var body={parent1:$("p1").value,parent2:$("p2").value,class_name:$("cls").value,website:$("web").value,agree:$("agree").checked,show_names:$("show").checked};
+    if(!body.agree||!body.show_names){msg.textContent=ERR.consent_required;return;}
+    var btn=$("submitbtn"); btn.disabled=true; btn.textContent="שולחים…";
+    fetch(API,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)})
+      .then(function(r){return r.json().then(function(j){return {ok:r.ok,j:j}})})
+      .then(function(res){
+        if(res.ok){ try{localStorage.setItem("kp_signed","1")}catch(e){} showSigned(); load(); $("thanks").scrollIntoView({behavior:"smooth",block:"center"}); }
+        else { msg.textContent=ERR[res.j&&res.j.error]||ERR.write_failed; if(res.j&&res.j.error==="duplicate"){showSigned();load();} }
+      })
+      .catch(function(){ msg.textContent=ERR.write_failed; })
+      .then(function(){ btn.disabled=false; btn.textContent="חותמים"; });
+  });
+})();
+</script>
+
+</body>
+</html>
