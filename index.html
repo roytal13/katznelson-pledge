@@ -180,7 +180,7 @@ h2{font-size:24px;font-weight:800;letter-spacing:-.01em;line-height:1.2;margin:0
 
   <section id="sign">
     <h2>חותמים על האמנה</h2>
-    <p class="sub">שני ההורים בטופס אחד. שמות ההורים יופיעו ברשימת החותמים למטה. שם הילד/ה לא מוצג.</p>
+    <p class="sub">שני ההורים בטופס אחד. שמות ההורים ושם הילד/ה יופיעו ברשימת החותמים למטה.</p>
     <div class="prog" aria-live="polite">
       <div class="prog-top"><span><b class="num" id="cnt">0</b> משפחות חתמו</span><span>היעד: <b class="num">22</b> מתוך <b class="num">43</b></span></div>
       <div class="bar-bg"><div class="bar-fg" id="barfg" style="width:0%"></div></div>
@@ -236,7 +236,9 @@ h2{font-size:24px;font-weight:800;letter-spacing:-.01em;line-height:1.2;margin:0
     sigs.forEach(function(s){
       var li=document.createElement("li");
       var nm=document.createElement("span");nm.className="nm";nm.textContent=s.parent1+" ו"+s.parent2;
-      li.appendChild(nm);ul.appendChild(li);
+      li.appendChild(nm);
+      if(s.child_name){var cl=document.createElement("span");cl.className="cl";cl.textContent=s.child_name;li.appendChild(cl);}
+      ul.appendChild(li);
     });
   }
   function load(){
