@@ -180,7 +180,7 @@ h2{font-size:24px;font-weight:800;letter-spacing:-.01em;line-height:1.2;margin:0
 
   <section id="sign">
     <h2>חותמים על האמנה</h2>
-    <p class="sub">שני ההורים בטופס אחד. אחרי החתימה השמות מופיעים ברשימה למטה.</p>
+    <p class="sub">שני ההורים בטופס אחד. השמות והכיתה יופיעו ברשימת החותמים למטה.</p>
     <div class="prog" aria-live="polite">
       <div class="prog-top"><span><b class="num" id="cnt">0</b> משפחות חתמו</span><span>היעד: <b class="num">22</b> מתוך <b class="num">43</b></span></div>
       <div class="bar-bg"><div class="bar-fg" id="barfg" style="width:0%"></div></div>
@@ -191,7 +191,6 @@ h2{font-size:24px;font-weight:800;letter-spacing:-.01em;line-height:1.2;margin:0
       <label>כיתה של הילד/ה<input id="cls" name="class_name" maxlength="12" placeholder="למשל א׳2" required autocomplete="off"></label>
       <div class="hp" aria-hidden="true"><label>אתר<input id="web" name="website" tabindex="-1" autocomplete="off"></label></div>
       <label class="chk"><input type="checkbox" id="agree"><span>שנינו קראנו את האמנה ומסכימים לחתום עליה.</span></label>
-      <label class="chk"><input type="checkbox" id="show"><span>מסכימים שהשמות שלנו והכיתה יופיעו ברשימת החותמים.</span></label>
       <div id="msg" class="msg" role="status" aria-live="polite"></div>
       <button type="submit" class="submit" id="submitbtn">חותמים</button>
     </form>
@@ -201,7 +200,7 @@ h2{font-size:24px;font-weight:800;letter-spacing:-.01em;line-height:1.2;margin:0
   <section>
     <h2>על הסיפון</h2>
     <ul class="signers" id="list"><li class="empty">טוען את הרשימה…</li></ul>
-    <p class="fine" style="margin-top:12px">שמות מופיעים רק של מי שהסכים לכך. להסרת שם פנו להנהגת ההורים.</p>
+    <p class="fine" style="margin-top:12px">להסרת שם מהרשימה פנו להנהגת ההורים.</p>
   </section>
 
   <section>
@@ -247,12 +246,12 @@ h2{font-size:24px;font-weight:800;letter-spacing:-.01em;line-height:1.2;margin:0
     });
   }
   load();
-  var ERR={bad_name:"נא לכתוב שם מלא באותיות בלבד, לכל אחד מההורים.",bad_class:"נא לכתוב כיתה, למשל א׳2.",consent_required:"צריך לסמן את שתי תיבות ההסכמה.",duplicate:"המשפחה הזאת כבר חתמה. תודה!",rate_limited:"יותר מדי ניסיונות. נסו שוב בעוד שעה.",write_failed:"משהו השתבש. נסו שוב בעוד רגע.",read_failed:"משהו השתבש. נסו שוב."};
+  var ERR={bad_name:"נא לכתוב שם מלא באותיות בלבד, לכל אחד מההורים.",bad_class:"נא לכתוב כיתה, למשל א׳2.",consent_required:"צריך לסמן שקראתם ומסכימים.",duplicate:"המשפחה הזאת כבר חתמה. תודה!",rate_limited:"יותר מדי ניסיונות. נסו שוב בעוד שעה.",write_failed:"משהו השתבש. נסו שוב בעוד רגע.",read_failed:"משהו השתבש. נסו שוב."};
   $("f").addEventListener("submit",function(ev){
     ev.preventDefault();
     var msg=$("msg"); msg.textContent="";
-    var body={parent1:$("p1").value,parent2:$("p2").value,class_name:$("cls").value,website:$("web").value,agree:$("agree").checked,show_names:$("show").checked};
-    if(!body.agree||!body.show_names){msg.textContent=ERR.consent_required;return;}
+    var body={parent1:$("p1").value,parent2:$("p2").value,class_name:$("cls").value,website:$("web").value,agree:$("agree").checked};
+    if(!body.agree){msg.textContent=ERR.consent_required;return;}
     var btn=$("submitbtn"); btn.disabled=true; btn.textContent="שולחים…";
     fetch(API,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)})
       .then(function(r){return r.json().then(function(j){return {ok:r.ok,j:j}})})
